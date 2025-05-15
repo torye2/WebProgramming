@@ -23,10 +23,10 @@ public class ControlEx {
 			return;
 		}
 		res = input == 1 ? "입력메뉴입니다." : 
-					 input == 2 ? "수정메뉴입니다." :
-					 input == 3 ? "조회메뉴입니다." :
-					 input == 4 ? "삭제메뉴입니다." : 
-				     input == 9 ? "프로그램이 종료됩니다." : "잘못입력하셨습니다.";  
+			  input == 2 ? "수정메뉴입니다." :
+		 	  input == 3 ? "조회메뉴입니다." :
+		 	  input == 4 ? "삭제메뉴입니다." : 
+		      input == 9 ? "프로그램이 종료됩니다." : "잘못입력하셨습니다.";  
 		System.out.println(res);
 	}
 	
