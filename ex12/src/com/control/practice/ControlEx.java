@@ -88,16 +88,21 @@ public class ControlEx {
 			key = 2;
 		
 		switch(key) {
-		case 1: System.out.printf("국어: %d점\t영어: %d점\t수학: %d점\t합계: %d점\t평균: %.1f점\n축하합니다, 합격입니다!\n"
-				, lan, eng, math, total, ave); break;
-		case 2: System.out.printf("국어: %d점\t영어: %d점\t수학: %d점\t합계: %d점\t평균: %.1f점\n불합격입니다.\n"
-				, lan, eng, math, total, ave); break;
+		case 1: 
+			System.out.printf("국어: %d점\t영어: %d점\t수학: %d점\t합계: %d점\t평균: %.1f점\n"
+				+ "축하합니다, 합격입니다!\n", lan, eng, math, total, ave); 
+			break;
+		case 2: 
+			System.out.printf("국어: %d점\t영어: %d점\t수학: %d점\t합계: %d점\t평균: %.1f점\n"
+				+ "불합격입니다.\n", lan, eng, math, total, ave); 
+			break;
 		}
 	}
 	
 	public void method5() {
 		String id = "momo", pw = "1234", idinput, pwinput;
 		
+		while(true) {
 		System.out.println("아이디: ");
 		idinput = sc.next();
 		System.out.println("비밀번호: ");
@@ -107,6 +112,7 @@ public class ControlEx {
 			: idinput.equals(id) ? "비밀번호가 틀렸습니다."
 			: pwinput.equals(pw) ? "아이디가 틀렸습니다." : "아이디와 비밀번호 모두 틀렸습니다.";
 		System.out.println(res);
+		}
 	}
 	
 	public void method6() {
@@ -152,14 +158,30 @@ public class ControlEx {
 		input = sc.nextInt();
 		
 		switch(input) {
-		case 1: method1(); break;
-		case 2: method2(); break;
-		case 3: method3(); break;
-		case 4: method4(); break;
-		case 5: method5(); break;
-		case 6: method6(); break;
-		case 7: method7(); break;
-		default: System.out.println("잘못입력하셨습니다."); break;
+		case 1: 
+			method1(); 
+			break;
+		case 2: 
+			method2(); 
+			break;
+		case 3: 
+			method3(); 
+			break;
+		case 4: 
+			method4(); 
+			break;
+		case 5: 
+			method5(); 
+			break;
+		case 6: 
+			method6(); 
+			break;
+		case 7: 
+			method7(); 
+			break;
+		default: 
+			System.out.println("잘못입력하셨습니다."); 
+			break;
 		}
 	}
 	
