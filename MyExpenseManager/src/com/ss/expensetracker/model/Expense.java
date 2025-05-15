@@ -30,11 +30,67 @@ public class Expense {
 	
 	// --- getters & setters ---
 	
+	/**
+	 * 현재 Expense 인스턴스에 설정된 카테고리 값을 반환
+	 */
 	public Category getCategory() {
 		return category;
 	}
 	
+	/**
+	 * 인자로 받은 Category 값을 이 객체의 category 필드에 할당
+	 */
 	public void setCategory(Category category) {
-		
+		this.category = category;
 	}
+	
+	/**
+	 * 현재 Expense의 memo 문자열을 반환
+	 */
+	public String getMemo() {
+		return memo;
+	}
+	
+	/**
+	 * 인자로 받은 memo를 memo 필드에 저장
+	 */
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+	
+	/**
+	 * 이 지출 항목의 금액 값을 double로 반환
+	 */
+	public double getAmount() {
+		return amount;
+	}
+	
+	/**
+	 * 인자로 받은 amount를 amount 필드에 할당
+	 */
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+	
+	/**
+	 * 이 지출의 날짜 값을 LocalDate 타입으로 반환
+	 */
+	public LocalDate getDate() {
+		return date;
+	}
+	
+	/**
+	 * 인자로 받은 date를 date 필드에 저장
+	 */
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+	
+	@Override
+	public String toString() {
+		return "Expense{ category = " + category +
+				", memo = " + memo + ", amount = " + amount +
+				", date = " + date + '}';
+	}
+	
 }

@@ -12,8 +12,12 @@ import com.ss.expensetracker.model.Expense;
  */
 public interface ExpenseService{
 	void addExpense(Expense expense); // 새로운 지출 항목 추가
+	
 	List<Expense> getAllExpenses(); // 전체 지출 목록 조회
+	
 	// from부터 to 사이 날짜의 지출 금액을 합산해서 반환
 	double getTotalAmount(LocalDate from, LocalDate to);
+	
+	// from부터 to 사이 날짜의 카테고리별 지출 금액을 합산해서 반환
 	Map<Category, Double> getTotalByCategory(LocalDate from, LocalDate to);
 }
