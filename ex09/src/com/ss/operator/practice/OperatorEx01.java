@@ -15,9 +15,7 @@ public class OperatorEx01 {
 		isTrue = !isTrue;
 		
 		// 조건이 참이 아니면 코드 블럭을 실행
-		if(!true) {
-			
-		}
+		// if(!true) {	}
 		
 		System.out.println(!false);
 	}

@@ -118,39 +118,62 @@ public class ControlEx {
 	public void method6() {
 		String inp;
 		
-		System.out.println("직급을 입력해주세요");
-		inp = sc.next();
-		res = inp.equals("관리자") ? "관리자 : 회원관리, 게시글관리, 게시글작성, 게시글조회, 댓글작성"
-			: inp.equals("회원") ? "회원 : 게시글작성, 게시글조회, 댓글작성"
-			: inp.equals("비회원") ? "비회원 : 게시글 조회" : "잘못입력했습니다.";
-		System.out.println(res);
+		for(int i = 0; i <= 9; i++) {
+			System.out.println("직급을 입력해주세요");
+			inp = sc.next();
+			res = inp.equals("관리자") ? "관리자 : 회원관리, 게시글관리, 게시글작성, 게시글조회, 댓글작성"
+				: inp.equals("회원") ? "회원 : 게시글작성, 게시글조회, 댓글작성"
+				: inp.equals("비회원") ? "비회원 : 게시글 조회" : "잘못입력했습니다.";
+			System.out.println(res);
+		}
 	}
 	
 	public void method7() {
-		Scanner scanner = new Scanner(System.in);
+				
+		String in;
 		
-		System.out.println("키(m) : ");
-		double height = scanner.nextDouble();
-		
-		System.out.println("몸무게(kg) : ");
-		int weight = scanner.nextInt();
-		
-		double bmi = weight / (height * height);
-		
-		if ( bmi < 18.5 )
-			System.out.println("저체중입니다.");
-		else if ( 18.5 <= bmi && bmi < 23 )
-			System.out.println("정상 체중입니다.");
-		else if ( 23 <= bmi && bmi < 25 )
-			System.out.println("과체중입니다.");
-		else if ( 25 <= bmi && bmi < 30 )
-			System.out.println("비만 1단계입니다.");
-		else if ( 30 <= bmi && bmi < 35 )
-			System.out.println("비만 2단계입니다.");
-		else
-			System.out.println("고도비만입니다.");
-		
-		scanner.close();
+		while(true) {
+			System.out.println("키(m) : ");
+			double height = sc.nextDouble();
+			
+			if(height > 3) {
+				System.out.println("다시 입력해주세요");
+			}
+			else {
+				while(true) {
+					System.out.println("몸무게(kg) : ");
+					int weight = sc.nextInt();
+					if(weight > 300) {
+						System.out.println("다시 입력해주세요");
+					}
+					else {
+						double bmi = weight / (height * height);
+						
+						if ( bmi < 18.5 )
+							System.out.println("저체중입니다.");
+						else if ( 18.5 <= bmi && bmi < 23 )
+							System.out.println("정상 체중입니다.");
+						else if ( 23 <= bmi && bmi < 25 )
+							System.out.println("과체중입니다.");
+						else if ( 25 <= bmi && bmi < 30 )
+							System.out.println("비만 1단계입니다.");
+						else if ( 30 <= bmi && bmi < 35 )
+							System.out.println("비만 2단계입니다.");
+						else
+							System.out.println("고도비만입니다.");
+						break;
+					}
+				}
+				System.out.println("계속 하시겠습니까?(Y)");
+				in = sc.next();
+				if("Y".equalsIgnoreCase(in))
+					System.out.println("계속합니다.");
+				else {
+					System.out.println("종료합니다.");
+					break;
+				}
+			}
+		}
 	}
 	
 	public void method8() {

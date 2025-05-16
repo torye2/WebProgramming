@@ -32,6 +32,6 @@ public class WhileEx {
 			System.out.println(id + " (" + i + ")");
 			i++;
 		}
-		
+		sc.close();
 	}
 }

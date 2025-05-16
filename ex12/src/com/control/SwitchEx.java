@@ -19,5 +19,6 @@ public class SwitchEx {
 		case "사과" : System.out.println("사과는 2000원입니다."); break;
 		default : System.out.println("안팔아요~"); break;
 		}
+		sc.close();
 	}
 }
