@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class Expense {
 	private Category category; // 지출 카테고리
 	private String memo; // 지출 내용
-	private double amount; // 지출 금액
+	private Double amount; // 지출 금액
 	private LocalDate date; // 지출 날짜
 	private Long id; // ID
 	
@@ -16,7 +16,7 @@ public class Expense {
 	}
 	
 	/** 모든 필드를 초기화하는 생성자 */
-	public Expense(Category category, String memo, double amount, LocalDate date, Long id) {
+	public Expense(Category category, String memo, Double amount, LocalDate date, Long id) {
 		this.category = category;
 		this.memo = memo;
 		this.amount = amount;
@@ -47,12 +47,12 @@ public class Expense {
 	}
 	
 	/** 이 지출 항목의 금액 값을 double로 반환 */
-	public double getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 	
 	/** 인자로 받은 amount를 amount 필드에 할당 */
-	public void setAmount(double amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 	

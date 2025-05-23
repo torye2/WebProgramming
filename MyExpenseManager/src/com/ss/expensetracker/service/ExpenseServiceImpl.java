@@ -8,6 +8,7 @@ import com.ss.expensetracker.repository.ExpenseRepository;
 import com.ss.expensetracker.service.ExpenseService;
 import java.time.LocalDate;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.List;
 
@@ -74,7 +75,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 				dto.getCategory(),
 				dto.getMemo(),
 				dto.getAmount(),
-				dto.getDate()
+				dto.getDate(),
 				dto.getId());
 		
 		addExpense(expense);		
@@ -84,10 +85,30 @@ public class ExpenseServiceImpl implements ExpenseService {
 	
 	@Override
 	public Expense updateExpense(ExpenseUpdateDto dto) {
+		// 1. 기존 엔티티 조회
 		Expense exist = expenseRepository.findById(dto.getId())
-				.orelseThrow(() -> new NosuchElementException("ID = " + dto.getId() 
+				.orElseThrow(() -> new NoSuchElementException("ID = " + dto.getId() 
 				+ "인 지출이 없습니다."));
-				
+		
+		// 2. DTO에 담긴 값만 골라서 반영
+		if(dto.getCategory() != null)
+			exist.setCategory(dto.getCategory());
+		if(dto.getAmount() != null) {
+			if(dto.getAmount() <= 0) {
+				throw new IllegalArgumentException("금액은 반드시 양수여야합니다.");
+			}
+			exist.setAmount(dto.getAmount());
+		}
+		if(dto.getDate() != null) {
+			if(dto.getDate().isAfter(LocalDate.now()))
+				throw new IllegalArgumentException("날짜는 현재보다 미래가 될 수 없습니다.");
+			exist.setDate(dto.getDate());
+		}
+		if(dto.getMemo() != null) 
+			exist.setMemo(dto.getMemo());
+		
+		// 3. 변경된 엔티티 저장
+		expenseRepository.save(exist);
 		
 		return exist;
 	}

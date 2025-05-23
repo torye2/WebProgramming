@@ -8,13 +8,13 @@ import java.time.LocalDate;
  */
 public class ExpenseUpdateDto {
 	// 필드 선언
-	private final String id;
+	private final Long id;
 	private final Category category;
-	private final double amount;
+	private final Double amount;
 	private final LocalDate date;
 	private final String memo;
 	// 생성자
-	public ExpenseUpdateDto(String id, Category category, double amount, LocalDate date, String memo) {
+	public ExpenseUpdateDto(Long id, Category category, Double amount, LocalDate date, String memo) {
 		this.id = id;
 		this.category = category;
 		this.amount = amount;
@@ -22,7 +22,7 @@ public class ExpenseUpdateDto {
 		this.memo = memo;
 	}
 	// ----- getter ------
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 	
@@ -30,7 +30,7 @@ public class ExpenseUpdateDto {
 		return category;
 	}
 	
-	public double getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 	
