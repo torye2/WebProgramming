@@ -135,6 +135,55 @@ public class LoopEx {
 				}
 			}
 		}
+		
+		int max = 0, min = 0;
+		max = Math.max(in, in2);
+		min = Math.min(in, in2);
+		System.out.println("max: " + max);
+		System.out.println("min: " + min);
+		
+		for(int i = min; i <= max; i++) {
+			System.out.println(i);
+		}
+	}
+	
+	public void method6_1() {
+		
+		// 최대값, 최소값
+		int in2, temp = 0;
+		
+		System.out.println("첫번째 숫자: ");
+		in = sc.nextInt();
+		System.out.println("두번째 숫자: ");
+		in2 = sc.nextInt();
+		
+		temp = in;
+		in = in2;
+		in2 = temp;
+		
+		System.out.println("첫번째 숫자: " + in);
+		System.out.println("두번째 숫자: " + in2);
+		
+		if(in <= 0 || in2 <= 0)
+			System.out.println("1이상의 숫자만 입력해주세요");
+		else {
+			if(in < in2) {
+				for(int i = in; i <= in2; i++) {
+					System.out.println(i);
+				}
+			}
+			else {
+				for(int i = in2; i <= in; i++) {
+					System.out.println(i);
+				}
+			}
+		}
+	}
+	
+	// 메서드 이용하기
+	public void method6_2() {
+		
+		
 	}
 	
 	public void method7() {
