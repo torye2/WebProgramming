@@ -1,5 +1,7 @@
 package com.ss.expensetracker.service;
 
+import com.ss.expensetracker.dto.ExpenseCreateDto;
+import com.ss.expensetracker.dto.ExpenseUpdateDto;
 import com.ss.expensetracker.model.Category;
 import com.ss.expensetracker.model.Expense;
 import com.ss.expensetracker.repository.ExpenseRepository;
@@ -64,5 +66,29 @@ public class ExpenseServiceImpl implements ExpenseService {
 		return list.stream()
 				.collect(Collectors.groupingBy(Expense::getCategory, 
 						Collectors.summingDouble(Expense::getAmount)));
+	}
+	
+	@Override
+	public Expense createExpense(ExpenseCreateDto dto) {
+		Expense expense = new Expense(
+				dto.getCategory(),
+				dto.getMemo(),
+				dto.getAmount(),
+				dto.getDate()
+				dto.getId());
+		
+		addExpense(expense);		
+		
+		return expense;
+	}
+	
+	@Override
+	public Expense updateExpense(ExpenseUpdateDto dto) {
+		Expense exist = expenseRepository.findById(dto.getId())
+				.orelseThrow(() -> new NosuchElementException("ID = " + dto.getId() 
+				+ "인 지출이 없습니다."));
+				
+		
+		return exist;
 	}
 }

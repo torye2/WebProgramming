@@ -3,6 +3,7 @@ package com.ss.expensetracker.repository;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.ss.expensetracker.model.Expense;
@@ -31,5 +32,13 @@ public class InmemoryExpenseRepository implements ExpenseRepository {
 		return store.stream()
 				.filter(e -> !e.getDate().isBefore(from) && !e.getDate().isAfter(to))
 				.collect(Collectors.toList());
+	}
+	
+	@Override
+	public Optional<Expense> findById(Long id){
+		
+		return store.stream()
+				.filter(e -> e.getId(id).equals(id)) // ID가 일치하는 필터
+				.findFirst(); // 첫 엔티티를 반환
 	}
 }

@@ -1,7 +1,9 @@
 package com.ss.expensetracker.dto;
 
-import java.util.Locale.Category;
+
 import java.util.Map;
+
+import com.ss.expensetracker.model.Category;
 
 /**
  * 월간 리포트 결과를 담는 DTO

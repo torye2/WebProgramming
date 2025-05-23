@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+import com.ss.expensetracker.dto.ExpenseCreateDto;
+import com.ss.expensetracker.dto.ExpenseUpdateDto;
 import com.ss.expensetracker.model.Category;
 import com.ss.expensetracker.model.Expense;
 
@@ -20,4 +22,9 @@ public interface ExpenseService{
 	
 	// from부터 to 사이 날짜의 카테고리별 지출 금액을 합산해서 반환
 	Map<Category, Double> getTotalByCategory(LocalDate from, LocalDate to);
+	
+	// 새 지출 요청용 DTO
+	Expense createExpense(ExpenseCreateDto dto);
+	// 기존 지출 요청용 DTO
+	Expense updateExpense(ExpenseUpdateDto dto);
 }

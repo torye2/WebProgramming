@@ -1,6 +1,6 @@
 package com.ss.expensetracker.dto;
 
-import java.util.Locale.Category;
+import com.ss.expensetracker.model.Category;
 
 /**
  * 카테고리별 요약 정보를 담는 DTO
