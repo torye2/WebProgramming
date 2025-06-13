@@ -11,7 +11,7 @@ public class LibraryController {
 	
 	public LibraryController() {
 		System.out.println("-----------------------------");
-		System.out.println("성남 아트리움 도서관에 오신걸 환영합니다.");
+		System.out.println("성남 아트리움 도서관에 오신걸 환영합니다");
 		System.out.println("-----------------------------");
 	}
 	
