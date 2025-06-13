@@ -12,15 +12,13 @@ public class ExpenseCreateDto {
 	private final String memo;
 	private final double amount;
 	private final LocalDate date;
-	private final Long id;
 	
 	// 생성자
-	public ExpenseCreateDto(Category category, String memo, double amount, LocalDate date, Long id) {
+	public ExpenseCreateDto(Category category, String memo, double amount, LocalDate date) {
 		this.category = category;
 		this.memo = memo;
 		this.amount = amount;
 		this.date = date;
-		this.id = id;
 	}
 	
 	// ----- getter -----
@@ -40,7 +38,4 @@ public class ExpenseCreateDto {
 		return date;
 	}
 	
-	public Long getId() {
-		return id;
-	}
 }

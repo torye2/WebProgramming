@@ -5,7 +5,6 @@ import com.ss.expensetracker.dto.ExpenseUpdateDto;
 import com.ss.expensetracker.model.Category;
 import com.ss.expensetracker.model.Expense;
 import com.ss.expensetracker.repository.ExpenseRepository;
-import com.ss.expensetracker.service.ExpenseService;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -75,8 +74,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 				dto.getCategory(),
 				dto.getMemo(),
 				dto.getAmount(),
-				dto.getDate(),
-				dto.getId());
+				dto.getDate());
 		
 		addExpense(expense);		
 		

@@ -13,11 +13,24 @@ import com.ss.expensetracker.model.Expense;
  */
 public class InmemoryExpenseRepository implements ExpenseRepository {
 	private final List<Expense> store = new ArrayList<>();
+	private long sequence = 0L; // 시퀀스 카운터: 마지막에 발급된 ID 값
 	
 	@Override
 	public void save(Expense expense) {
-		// 단순 저장: 리스트에 추가
-		store.add(expense);
+		if(expense.getId() == null) {
+			// 신규 저장: addExpense에서 save 호출 시
+			expense.setId(++sequence); // 1 증가시킨 후 그 값을 ID에 할당
+			store.add(expense);
+		} else {
+			// 업데이트: updateExpense에서 save 호출 시
+			// 기존 리스트에서 동일 ID를 가진 객체를 찾아 교체
+			for(int i = 0; i < store.size(); i++) {
+				if(store.get(i).getId().equals(expense.getId())) {
+					store.set(i, expense);
+					return;
+				}
+			}
+		}
 	}
 	
 	@Override
@@ -38,7 +51,7 @@ public class InmemoryExpenseRepository implements ExpenseRepository {
 	public Optional<Expense> findById(Long id){
 		
 		return store.stream()
-				.filter(e -> e.getId(id).equals(id)) // ID가 일치하는 필터
+				.filter(e -> e.getId().equals(id)) // ID가 일치하는 필터
 				.findFirst(); // 첫 엔티티를 반환
 	}
 }

@@ -24,6 +24,11 @@ public class Expense {
 		this.id = id;
 	}
 	
+	/** 어플리케이션에서 지출을 새로 만들 때 사용할 생성자 - id = null */
+	public Expense(Category category, String memo, Double amount, LocalDate date) {
+		this(category, memo, amount, date, null);
+	}
+	
 	// --- getters & setters ---
 	
 	/** 현재 Expense 인스턴스에 설정된 카테고리 값을 반환 */
@@ -66,9 +71,13 @@ public class Expense {
 		this.date = date;
 	}
 	
-	/** 인자로 받은 id를 id 필드에 저장 */
-	public Long getId(Long id) {
+	public Long getId() {
 		return id;
+	}
+	
+	/** 인자로 받은 id를 id 필드에 저장 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	@Override

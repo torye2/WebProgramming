@@ -1,6 +1,8 @@
 package com.object.practice;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class NonStaticSample {
 	
@@ -22,7 +24,23 @@ public class NonStaticSample {
 		System.out.print("랜덤 값: ");
 		for(int i : lotto)
 			System.out.print(i + " ");
+	}
+	
+	/*
+	 * HashSet
+	 * 	Set 인터페이스의 구현체
+	 * 	Set<타입> 변수명 = new HashSet<>();
+	 * 	중복된 데이터가 들어와도 같은 값은 한번만 저장한다
+	 */
+	public void hashsetLotto() {
+		// 중복을 허용하지 않음
+		Set<Integer> lotto = new HashSet<Integer>();
 		
+		while(lotto.size() <= 6) {
+			int num = (int)(Math.random() * 45 + 1);
+			lotto.add(num);
+		}
+		System.out.println(lotto);
 	}
 	
 	public void outputChar(int num, char c) {
@@ -40,6 +58,14 @@ public class NonStaticSample {
 		res = str.substring(index1, index2);
 		
 		return res;
+	}
+	
+	public String Substring(String str, int index1, int index2) {
+		String s[] = str.split(str);
+		for(String n : s)
+			System.out.println(n);
+		
+		return str;
 	}
 	
 }

@@ -10,11 +10,11 @@ public class ExpenseUpdateDto {
 	// 필드 선언
 	private final Long id;
 	private final Category category;
-	private final Double amount;
+	private final double amount;
 	private final LocalDate date;
 	private final String memo;
 	// 생성자
-	public ExpenseUpdateDto(Long id, Category category, Double amount, LocalDate date, String memo) {
+	public ExpenseUpdateDto(Long id, Category category, double amount, LocalDate date, String memo) {
 		this.id = id;
 		this.category = category;
 		this.amount = amount;

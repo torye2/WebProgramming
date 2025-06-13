@@ -13,6 +13,7 @@ public class App {
 		nss.outputChar(5, 'a');
 		System.out.println();
 		System.out.println(nss.mySubstring("apple", 2, 4));
+		System.out.println(nss.Substring("apple", 2, 4));
 
 	}
 
